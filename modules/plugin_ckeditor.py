@@ -80,7 +80,7 @@ class CKEditor(object):
         attributes['_class'] = 'text plugin_ckeditor'
 
         textarea = TEXTAREA(**attributes)
-        javascript = self.load('#' + textarea.attributes['_id'],
+        javascript = self.load('' + textarea.attributes['_id'],
                                use_caching=False)
         result = CAT(textarea, javascript)
 
@@ -155,7 +155,7 @@ class CKEditor(object):
             immediate = """
                 jQuery(function() {
                     var config = ckeditor_config();
-                    jQuery('%s').ckeditor(config);
+                    CKEDITOR.replace('%s');
                 });
             """ % selector
 
